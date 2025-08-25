@@ -178,11 +178,25 @@ const searchBtn = document.querySelector('.search-btn');
 
 // Initialize the application
 document.addEventListener('DOMContentLoaded', function() {
+    console.log('🚀 DOM Content Loaded - Initializing ONNX Explorer');
+    
+    // Log DOM element detection
+    console.log('📊 DOM Elements Found:');
+    console.log('- Nav buttons:', navButtons.length);
+    console.log('- Content sections:', contentSections.length);
+    console.log('- Zoom buttons:', zoomButtons.length);
+    console.log('- TOC list:', tocList ? 'Found' : 'NOT FOUND');
+    console.log('- Current path:', currentPath ? 'Found' : 'NOT FOUND');
+    console.log('- Search input:', searchInput ? 'Found' : 'NOT FOUND');
+    console.log('- Search button:', searchBtn ? 'Found' : 'NOT FOUND');
+    
     initializeNavigation();
     initializeZoomControls();
     initializeSearch();
     populateContent();
     updateTOC();
+    
+    console.log('✅ Initialization complete');
 });
 
 // Navigation functionality
