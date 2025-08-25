@@ -166,20 +166,186 @@
                     </div>
                 </section>
 
-                <!-- Other sections will be added -->
+                <!-- Modules Section -->
                 <section id="modules" class="content-section">
                     <h2>Module Deep Dive</h2>
-                    <p>Detailed exploration of ONNX modules...</p>
+                    
+                    <div class="modules-content">
+                        <div class="modules-grid">
+                            <div class="module-category">
+                                <h3>🐍 Core API Modules</h3>
+                                <div class="module-list">
+                                    <div class="module-card">
+                                        <h4>onnx.helper</h4>
+                                        <p>High-level API for creating ONNX models</p>
+                                        <div class="module-functions">
+                                            <span class="func-tag">make_model</span>
+                                            <span class="func-tag">make_graph</span>
+                                            <span class="func-tag">make_node</span>
+                                        </div>
+                                    </div>
+                                    <div class="module-card">
+                                        <h4>onnx.checker</h4>
+                                        <p>Model validation and verification</p>
+                                        <div class="module-functions">
+                                            <span class="func-tag">check_model</span>
+                                            <span class="func-tag">check_graph</span>
+                                            <span class="func-tag">check_node</span>
+                                        </div>
+                                    </div>
+                                    <div class="module-card">
+                                        <h4>onnx.numpy_helper</h4>
+                                        <p>NumPy integration utilities</p>
+                                        <div class="module-functions">
+                                            <span class="func-tag">to_array</span>
+                                            <span class="func-tag">from_array</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="module-category">
+                                <h3>🧠 Advanced Modules</h3>
+                                <div class="module-list">
+                                    <div class="module-card">
+                                        <h4>onnx.shape_inference</h4>
+                                        <p>Automatic shape inference engine</p>
+                                        <div class="module-functions">
+                                            <span class="func-tag">infer_shapes</span>
+                                            <span class="func-tag">infer_node_outputs</span>
+                                        </div>
+                                    </div>
+                                    <div class="module-card">
+                                        <h4>onnx.defs</h4>
+                                        <p>Operator definitions and schema registry</p>
+                                        <div class="module-functions">
+                                            <span class="func-tag">get_schema</span>
+                                            <span class="func-tag">get_all_schemas</span>
+                                        </div>
+                                    </div>
+                                    <div class="module-card">
+                                        <h4>onnx.version_converter</h4>
+                                        <p>Convert between ONNX versions</p>
+                                        <div class="module-functions">
+                                            <span class="func-tag">convert_version</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </section>
 
                 <section id="apis" class="content-section">
                     <h2>API Reference</h2>
-                    <p>Complete API documentation...</p>
+                    
+                    <div class="apis-content">
+                        <div class="api-sections">
+                            <div class="api-section">
+                                <h3>🐍 Python API</h3>
+                                <div class="api-overview">
+                                    <p>The primary interface for working with ONNX models in Python.</p>
+                                    <div class="api-categories">
+                                        <div class="api-category">
+                                            <h4>Model Creation</h4>
+                                            <ul>
+                                                <li><code>onnx.helper.make_model()</code> - Create ONNX model</li>
+                                                <li><code>onnx.helper.make_graph()</code> - Create computation graph</li>
+                                                <li><code>onnx.helper.make_node()</code> - Create graph nodes</li>
+                                            </ul>
+                                        </div>
+                                        <div class="api-category">
+                                            <h4>Model Validation</h4>
+                                            <ul>
+                                                <li><code>onnx.checker.check_model()</code> - Validate model structure</li>
+                                                <li><code>onnx.checker.check_graph()</code> - Validate graph consistency</li>
+                                                <li><code>onnx.shape_inference.infer_shapes()</code> - Infer tensor shapes</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="api-section">
+                                <h3>⚡ C++ API</h3>
+                                <div class="api-overview">
+                                    <p>High-performance C++ interface for production environments.</p>
+                                    <div class="api-categories">
+                                        <div class="api-category">
+                                            <h4>Core Classes</h4>
+                                            <ul>
+                                                <li><code>onnx::ModelProto</code> - Model representation</li>
+                                                <li><code>onnx::GraphProto</code> - Graph representation</li>
+                                                <li><code>onnx::NodeProto</code> - Node representation</li>
+                                            </ul>
+                                        </div>
+                                        <div class="api-category">
+                                            <h4>Utilities</h4>
+                                            <ul>
+                                                <li><code>onnx::checker::check_model()</code> - Model validation</li>
+                                                <li><code>onnx::shape_inference::InferShapes()</code> - Shape inference</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </section>
 
                 <section id="implementation" class="content-section">
                     <h2>Implementation Details</h2>
-                    <p>Low-level implementation details...</p>
+                    
+                    <div class="implementation-content">
+                        <div class="impl-sections">
+                            <div class="impl-section">
+                                <h3>🏗️ Core Architecture</h3>
+                                <div class="arch-details">
+                                    <div class="arch-component">
+                                        <h4>Protocol Buffers</h4>
+                                        <p>ONNX uses Protocol Buffers (protobuf) as its serialization format:</p>
+                                        <ul>
+                                            <li><strong>onnx.proto</strong> - Core ONNX definitions</li>
+                                            <li><strong>onnx-operators.proto</strong> - Operator schemas</li>
+                                            <li><strong>onnx-ml.proto</strong> - ML-specific extensions</li>
+                                        </ul>
+                                    </div>
+                                    <div class="arch-component">
+                                        <h4>Graph Representation</h4>
+                                        <p>ONNX models are represented as directed acyclic graphs (DAGs):</p>
+                                        <ul>
+                                            <li><strong>Nodes</strong> - Operations/operators</li>
+                                            <li><strong>Edges</strong> - Data flow between operations</li>
+                                            <li><strong>Initializers</strong> - Model parameters/weights</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="impl-section">
+                                <h3>⚙️ Type System</h3>
+                                <div class="type-system">
+                                    <div class="type-category">
+                                        <h4>Tensor Types</h4>
+                                        <ul>
+                                            <li><code>FLOAT</code>, <code>DOUBLE</code> - Floating point</li>
+                                            <li><code>INT8</code>, <code>INT16</code>, <code>INT32</code>, <code>INT64</code> - Integers</li>
+                                            <li><code>UINT8</code>, <code>UINT16</code>, <code>UINT32</code>, <code>UINT64</code> - Unsigned integers</li>
+                                            <li><code>BOOL</code> - Boolean values</li>
+                                        </ul>
+                                    </div>
+                                    <div class="type-category">
+                                        <h4>Advanced Types</h4>
+                                        <ul>
+                                            <li><code>STRING</code> - Text data</li>
+                                            <li><code>COMPLEX64</code>, <code>COMPLEX128</code> - Complex numbers</li>
+                                            <li><code>BFLOAT16</code> - Brain floating point</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </section>
             </div>
         </main>

@@ -678,3 +678,277 @@ body {
         margin-top: 1rem;
     }
 }
+
+/* Modules Section Styles */
+.modules-content {
+    padding: 1rem 0;
+}
+
+.modules-grid {
+    display: grid;
+    gap: 2rem;
+}
+
+.module-category {
+    background: white;
+    border-radius: 12px;
+    padding: 2rem;
+    box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+    border: 1px solid #e1e5e9;
+}
+
+.module-category h3 {
+    color: #333;
+    margin-bottom: 1.5rem;
+    font-size: 1.5rem;
+    border-bottom: 2px solid #667eea;
+    padding-bottom: 0.5rem;
+}
+
+.module-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+}
+
+.module-card {
+    background: #f8f9fa;
+    border-radius: 8px;
+    padding: 1.5rem;
+    border-left: 4px solid #667eea;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.module-card:hover {
+    background: #e9ecef;
+    transform: translateY(-3px);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.module-card h4 {
+    color: #333;
+    margin-bottom: 0.5rem;
+    font-size: 1.1rem;
+    font-family: 'Monaco', 'Consolas', monospace;
+}
+
+.module-card p {
+    color: #666;
+    margin-bottom: 1rem;
+    font-size: 0.9rem;
+}
+
+.module-functions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.func-tag {
+    background: #667eea;
+    color: white;
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    font-family: 'Monaco', 'Consolas', monospace;
+}
+
+/* APIs Section Styles */
+.apis-content {
+    padding: 1rem 0;
+}
+
+.api-sections {
+    display: grid;
+    gap: 2rem;
+}
+
+.api-section {
+    background: white;
+    border-radius: 12px;
+    padding: 2rem;
+    box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+    border: 1px solid #e1e5e9;
+}
+
+.api-section h3 {
+    color: #333;
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+    border-bottom: 2px solid #667eea;
+    padding-bottom: 0.5rem;
+}
+
+.api-overview p {
+    color: #666;
+    margin-bottom: 1.5rem;
+    font-size: 1.1rem;
+}
+
+.api-categories {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+}
+
+.api-category {
+    background: #f8f9fa;
+    border-radius: 8px;
+    padding: 1.5rem;
+    border-left: 4px solid #667eea;
+}
+
+.api-category h4 {
+    color: #333;
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+}
+
+.api-category ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.api-category li {
+    margin-bottom: 0.5rem;
+    padding: 0.5rem;
+    background: white;
+    border-radius: 4px;
+    border-left: 2px solid #667eea;
+}
+
+.api-category code {
+    background: #e9ecef;
+    padding: 0.2rem 0.4rem;
+    border-radius: 3px;
+    font-family: 'Monaco', 'Consolas', monospace;
+    font-size: 0.9rem;
+    color: #667eea;
+    font-weight: 600;
+}
+
+/* Implementation Section Styles */
+.implementation-content {
+    padding: 1rem 0;
+}
+
+.impl-sections {
+    display: grid;
+    gap: 2rem;
+}
+
+.impl-section {
+    background: white;
+    border-radius: 12px;
+    padding: 2rem;
+    box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+    border: 1px solid #e1e5e9;
+}
+
+.impl-section h3 {
+    color: #333;
+    margin-bottom: 1.5rem;
+    font-size: 1.5rem;
+    border-bottom: 2px solid #667eea;
+    padding-bottom: 0.5rem;
+}
+
+.arch-details {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+}
+
+.arch-component {
+    background: #f8f9fa;
+    border-radius: 8px;
+    padding: 1.5rem;
+    border-left: 4px solid #667eea;
+}
+
+.arch-component h4 {
+    color: #333;
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+}
+
+.arch-component p {
+    color: #666;
+    margin-bottom: 1rem;
+}
+
+.arch-component ul {
+    margin-left: 1.5rem;
+}
+
+.arch-component li {
+    color: #666;
+    margin-bottom: 0.5rem;
+}
+
+.type-system {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+}
+
+.type-category {
+    background: #f8f9fa;
+    border-radius: 8px;
+    padding: 1.5rem;
+    border-left: 4px solid #667eea;
+}
+
+.type-category h4 {
+    color: #333;
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+}
+
+.type-category ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.type-category li {
+    margin-bottom: 0.5rem;
+    padding: 0.5rem;
+    background: white;
+    border-radius: 4px;
+    border-left: 2px solid #667eea;
+    font-family: 'Monaco', 'Consolas', monospace;
+    font-size: 0.9rem;
+}
+
+.type-category code {
+    background: #667eea;
+    color: white;
+    padding: 0.2rem 0.4rem;
+    border-radius: 3px;
+    font-weight: 600;
+    margin-right: 0.5rem;
+}
+
+/* Responsive styles for new sections */
+@media (max-width: 768px) {
+    .module-list,
+    .api-categories,
+    .arch-details,
+    .type-system {
+        grid-template-columns: 1fr;
+    }
+    
+    .module-category,
+    .api-section,
+    .impl-section {
+        padding: 1.5rem;
+    }
+    
+    .func-tag {
+        font-size: 0.7rem;
+        padding: 0.2rem 0.4rem;
+    }
+}
