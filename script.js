@@ -228,9 +228,34 @@ function setZoomLevel(zoom) {
 }
 
 function updateContentForZoom() {
-    // This would update the content based on zoom level
-    // For now, we'll just update the view
-    console.log(`Switched to zoom level ${currentZoom}`);
+    // Update content based on current level and zoom
+    const currentSection = document.getElementById(currentLevel);
+    if (!currentSection) return;
+
+    // Apply zoom-specific styling and content
+    currentSection.className = `content-section active zoom-${currentZoom}`;
+    
+    // Update content based on zoom level
+    switch(currentLevel) {
+        case 'overview':
+            updateOverviewForZoom();
+            break;
+        case 'architecture':
+            updateArchitectureForZoom();
+            break;
+        case 'modules':
+            updateModulesForZoom();
+            break;
+        case 'apis':
+            updateApisForZoom();
+            break;
+        case 'implementation':
+            updateImplementationForZoom();
+            break;
+    }
+    
+    // Update breadcrumb to show zoom level
+    updateBreadcrumbWithZoom();
 }
 
 // Search functionality
@@ -385,12 +410,223 @@ function scrollToSection(sectionName) {
     // This would implement smooth scrolling to sections
 }
 
+// Zoom-specific content updates
+function updateOverviewForZoom() {
+    const overviewSection = document.getElementById('overview');
+    const grid = overviewSection.querySelector('.overview-grid');
+    
+    switch(currentZoom) {
+        case 1: // High Level - Simple concepts
+            grid.style.display = 'none';
+            showSimpleOverview(overviewSection);
+            break;
+        case 2: // Architecture - Current default view
+            grid.style.display = 'grid';
+            hideDetailedContent(overviewSection);
+            break;
+        case 3: // Modules - Show module breakdown
+            grid.style.display = 'grid';
+            showModuleBreakdown(overviewSection);
+            break;
+        case 4: // Code - Show code examples
+            grid.style.display = 'grid';
+            showCodeExamples(overviewSection);
+            break;
+    }
+}
+
+function updateArchitectureForZoom() {
+    const archSection = document.getElementById('architecture');
+    const treeDiv = archSection.querySelector('.directory-tree');
+    const moduleGrid = archSection.querySelector('#module-grid');
+    
+    switch(currentZoom) {
+        case 1: // High Level - Simple diagram only
+            treeDiv.style.display = 'none';
+            moduleGrid.style.display = 'none';
+            showSimpleArchitecture(archSection);
+            break;
+        case 2: // Architecture - Directory structure
+            treeDiv.style.display = 'block';
+            moduleGrid.style.display = 'grid';
+            showArchitectureDetails(archSection);
+            break;
+        case 3: // Modules - Detailed module view
+            treeDiv.style.display = 'block';
+            moduleGrid.style.display = 'grid';
+            showDetailedModules(archSection);
+            break;
+        case 4: // Code - File contents preview
+            showCodePreview(archSection);
+            break;
+    }
+}
+
+function updateModulesForZoom() {
+    const modulesSection = document.getElementById('modules');
+    
+    switch(currentZoom) {
+        case 1: // High Level - Module categories
+            showModuleCategories(modulesSection);
+            break;
+        case 2: // Architecture - Module relationships
+            showModuleRelationships(modulesSection);
+            break;
+        case 3: // Modules - Detailed API docs
+            showDetailedAPIDocs(modulesSection);
+            break;
+        case 4: // Code - Source code
+            showModuleSourceCode(modulesSection);
+            break;
+    }
+}
+
+function updateApisForZoom() {
+    const apisSection = document.getElementById('apis');
+    
+    switch(currentZoom) {
+        case 1: // High Level - API overview
+            showAPIOverview(apisSection);
+            break;
+        case 2: // Architecture - API structure
+            showAPIStructure(apisSection);
+            break;
+        case 3: // Modules - Function signatures
+            showFunctionSignatures(apisSection);
+            break;
+        case 4: // Code - Implementation details
+            showAPIImplementation(apisSection);
+            break;
+    }
+}
+
+function updateImplementationForZoom() {
+    const implSection = document.getElementById('implementation');
+    
+    switch(currentZoom) {
+        case 1: // High Level - Implementation concepts
+            showImplementationConcepts(implSection);
+            break;
+        case 2: // Architecture - System design
+            showSystemDesign(implSection);
+            break;
+        case 3: // Modules - Algorithm details
+            showAlgorithmDetails(implSection);
+            break;
+        case 4: // Code - Full source code
+            showFullSourceCode(implSection);
+            break;
+    }
+}
+
+// Helper functions for zoom content
+function showSimpleOverview(section) {
+    const existing = section.querySelector('.zoom-content');
+    if (existing) existing.remove();
+    
+    const zoomContent = document.createElement('div');
+    zoomContent.className = 'zoom-content';
+    zoomContent.innerHTML = `
+        <div class="simple-overview">
+            <h3>🎯 ONNX in Simple Terms</h3>
+            <p class="large-text">ONNX lets you use any AI model with any tool. It's like having a universal translator for machine learning models.</p>
+            <div class="simple-stats">
+                <div class="big-stat">194k+ <span>lines of code</span></div>
+                <div class="big-stat">12 <span>core modules</span></div>
+                <div class="big-stat">3k+ <span>tests</span></div>
+            </div>
+        </div>
+    `;
+    section.appendChild(zoomContent);
+}
+
+function showModuleBreakdown(section) {
+    const existing = section.querySelector('.zoom-content');
+    if (existing) existing.remove();
+    
+    const zoomContent = document.createElement('div');
+    zoomContent.className = 'zoom-content';
+    zoomContent.innerHTML = `
+        <div class="module-breakdown">
+            <h3>🔧 Core Module Breakdown</h3>
+            <div class="module-stats-grid">
+                <div class="module-stat">API Modules <strong>6</strong></div>
+                <div class="module-stat">Backend Modules <strong>2</strong></div>
+                <div class="module-stat">Reference Modules <strong>1</strong></div>
+                <div class="module-stat">Testing Modules <strong>3</strong></div>
+            </div>
+        </div>
+    `;
+    section.appendChild(zoomContent);
+}
+
+function showCodeExamples(section) {
+    const existing = section.querySelector('.zoom-content');
+    if (existing) existing.remove();
+    
+    const zoomContent = document.createElement('div');
+    zoomContent.className = 'zoom-content';
+    zoomContent.innerHTML = `
+        <div class="code-examples">
+            <h3>📝 Quick Start Code</h3>
+            <pre><code class="language-python"># Create a simple ONNX model
+import onnx
+from onnx import helper
+
+# Create a simple Add operation
+node = helper.make_node('Add', ['x', 'y'], ['z'])
+graph = helper.make_graph([node], 'simple_add', [], [])
+model = helper.make_model(graph)
+
+# Validate the model
+onnx.checker.check_model(model)</code></pre>
+        </div>
+    `;
+    section.appendChild(zoomContent);
+}
+
+function hideDetailedContent(section) {
+    const existing = section.querySelector('.zoom-content');
+    if (existing) existing.remove();
+}
+
+// Breadcrumb with zoom level
+function updateBreadcrumbWithZoom() {
+    const zoomLabels = {
+        1: '🌍 High Level',
+        2: '🏗️ Architecture', 
+        3: '🔧 Modules',
+        4: '📝 Code'
+    };
+    
+    const path = `ONNX Root • ${zoomLabels[currentZoom]}`;
+    updateBreadcrumb(path);
+}
+
 // Breadcrumb
 function updateBreadcrumb(path) {
     if (currentPath) {
         currentPath.textContent = path || 'ONNX Root';
     }
 }
+
+// Placeholder functions for other zoom levels (to be implemented)
+function showSimpleArchitecture(section) { /* TODO */ }
+function showArchitectureDetails(section) { /* TODO */ }
+function showDetailedModules(section) { /* TODO */ }
+function showCodePreview(section) { /* TODO */ }
+function showModuleCategories(section) { /* TODO */ }
+function showModuleRelationships(section) { /* TODO */ }
+function showDetailedAPIDocs(section) { /* TODO */ }
+function showModuleSourceCode(section) { /* TODO */ }
+function showAPIOverview(section) { /* TODO */ }
+function showAPIStructure(section) { /* TODO */ }
+function showFunctionSignatures(section) { /* TODO */ }
+function showAPIImplementation(section) { /* TODO */ }
+function showImplementationConcepts(section) { /* TODO */ }
+function showSystemDesign(section) { /* TODO */ }
+function showAlgorithmDetails(section) { /* TODO */ }
+function showFullSourceCode(section) { /* TODO */ }
 
 // Utility functions
 function createCodeBlock(code, language = 'python') {
