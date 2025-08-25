@@ -80,6 +80,13 @@ body {
     border-color: rgba(255,255,255,0.5);
 }
 
+/* Test styling - make Overview button red */
+.nav-btn[data-level="overview"] {
+    background: red !important;
+    color: white !important;
+    border-color: red !important;
+}
+
 /* Search */
 .search-container {
     display: flex;

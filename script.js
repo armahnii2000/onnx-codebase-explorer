@@ -214,19 +214,30 @@ function switchToLevel(level) {
 
 // Zoom control functionality
 function initializeZoomControls() {
-    zoomButtons.forEach(btn => {
+    console.log('Initializing zoom controls. Found buttons:', zoomButtons.length);
+    zoomButtons.forEach((btn, index) => {
+        console.log(`Zoom button ${index}:`, btn.dataset.zoom, btn.textContent);
         btn.addEventListener('click', () => {
             const zoom = parseInt(btn.dataset.zoom);
+            console.log('Zoom button clicked:', zoom);
             setZoomLevel(zoom);
         });
     });
 }
 
 function setZoomLevel(zoom) {
+    console.log('Setting zoom level to:', zoom);
     zoomButtons.forEach(btn => btn.classList.remove('active'));
-    document.querySelector(`[data-zoom="${zoom}"]`).classList.add('active');
+    const targetButton = document.querySelector(`[data-zoom="${zoom}"]`);
+    if (targetButton) {
+        targetButton.classList.add('active');
+        console.log('Found and activated zoom button:', targetButton);
+    } else {
+        console.error('Could not find zoom button for level:', zoom);
+    }
     
     currentZoom = zoom;
+    console.log('Current level:', currentLevel, 'Current zoom:', currentZoom);
     updateContentForZoom();
 }
 
