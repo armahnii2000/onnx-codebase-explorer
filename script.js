@@ -391,6 +391,12 @@ function updateTOC() {
             'Key Components',
             'System Overview'
         ],
+        system: [
+            'How ONNX Works',
+            'Ecosystem Flow',
+            'Key Benefits',
+            'System Components'
+        ],
         architecture: [
             'Repository Structure',
             'Core Modules',
