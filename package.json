@@ -1,0 +1,39 @@
+{
+  "name": "onnx-codebase-explorer",
+  "version": "1.0.0",
+  "description": "A visual, interactive website for understanding the ONNX codebase architecture from high level down to detailed implementation",
+  "main": "index.html",
+  "scripts": {
+    "start": "python -m http.server 8080",
+    "serve": "python -m http.server 8080",
+    "build": "echo 'No build step needed for static site'",
+    "deploy": "echo 'Ready for deployment to GitHub Pages or other static hosting'"
+  },
+  "keywords": [
+    "onnx",
+    "documentation",
+    "interactive",
+    "codebase",
+    "visualization",
+    "architecture",
+    "machine-learning",
+    "neural-networks"
+  ],
+  "author": "George Armah (armahnii2000)",
+  "license": "MIT",
+  "homepage": "https://armahnii2000.github.io/onnx-codebase-explorer",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/armahnii2000/onnx-codebase-explorer.git"
+  },
+  "bugs": {
+    "url": "https://github.com/armahnii2000/onnx-codebase-explorer/issues"
+  },
+  "dependencies": {},
+  "devDependencies": {},
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not dead"
+  ]
+}

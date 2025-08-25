@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ONNX Codebase Explorer</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-core.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
+</head>
+<body>
+    <div id="app">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-content">
+                <h1 class="logo">
+                    <img src="https://github.com/onnx/onnx/raw/main/docs/onnx-horizontal-color.png" alt="ONNX" class="logo-img">
+                    Codebase Explorer
+                </h1>
+                <nav class="nav">
+                    <button class="nav-btn active" data-level="overview">Overview</button>
+                    <button class="nav-btn" data-level="architecture">Architecture</button>
+                    <button class="nav-btn" data-level="modules">Modules</button>
+                    <button class="nav-btn" data-level="apis">APIs</button>
+                    <button class="nav-btn" data-level="implementation">Implementation</button>
+                </nav>
+                <div class="search-container">
+                    <input type="text" id="search" placeholder="Search codebase..." class="search-input">
+                    <button class="search-btn">🔍</button>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="main">
+            <!-- Sidebar -->
+            <aside class="sidebar">
+                <div class="sidebar-content">
+                    <div class="breadcrumb">
+                        <span id="current-path">ONNX Root</span>
+                    </div>
+                    <div class="level-selector">
+                        <h3>Zoom Level</h3>
+                        <div class="zoom-controls">
+                            <button class="zoom-btn" data-zoom="1">🌍 High Level</button>
+                            <button class="zoom-btn active" data-zoom="2">🏗️ Architecture</button>
+                            <button class="zoom-btn" data-zoom="3">🔧 Modules</button>
+                            <button class="zoom-btn" data-zoom="4">📝 Code</button>
+                        </div>
+                    </div>
+                    <div class="toc">
+                        <h3>Navigation</h3>
+                        <ul id="toc-list">
+                            <!-- Dynamically populated -->
+                        </ul>
+                    </div>
+                </div>
+            </aside>
+
+            <!-- Content Area -->
+            <div class="content">
+                <!-- Overview Section -->
+                <section id="overview" class="content-section active">
+                    <h2>ONNX: Open Neural Network Exchange</h2>
+                    
+                    <div class="overview-grid">
+                        <div class="overview-card">
+                            <h3>🎯 What is ONNX?</h3>
+                            <p>An open ecosystem that empowers AI developers to choose the right tools. ONNX provides an open source format for AI models, both deep learning and traditional ML.</p>
+                            <div class="stats">
+                                <span class="stat"><strong>3,198</strong> backend tests</span>
+                                <span class="stat"><strong>12</strong> core modules</span>
+                                <span class="stat"><strong>194k+</strong> lines of code</span>
+                            </div>
+                        </div>
+
+                        <div class="overview-card">
+                            <h3>🏗️ Core Architecture</h3>
+                            <p>Built with a modular design focusing on:</p>
+                            <ul>
+                                <li><strong>Protocol Buffers</strong> - Core data format</li>
+                                <li><strong>Graph IR</strong> - Intermediate representation</li>
+                                <li><strong>Operators</strong> - Standardized operations</li>
+                                <li><strong>Type System</strong> - Rich data type support</li>
+                            </ul>
+                        </div>
+
+                        <div class="overview-card">
+                            <h3>🔧 Key Components</h3>
+                            <div class="component-list">
+                                <div class="component-item">
+                                    <span class="component-name">Core Library</span>
+                                    <span class="component-path">onnx/</span>
+                                </div>
+                                <div class="component-item">
+                                    <span class="component-name">Backend Tests</span>
+                                    <span class="component-path">onnx/backend/</span>
+                                </div>
+                                <div class="component-item">
+                                    <span class="component-name">Reference Implementation</span>
+                                    <span class="component-path">onnx/reference/</span>
+                                </div>
+                                <div class="component-item">
+                                    <span class="component-name">Shape Inference</span>
+                                    <span class="component-path">onnx/shape_inference/</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="high-level-diagram">
+                        <h3>High-Level System Overview</h3>
+                        <div class="mermaid">
+                            graph TB
+                                A[AI Framework] --> B[ONNX Model]
+                                B --> C[ONNX Runtime]
+                                B --> D[Hardware Accelerator]
+                                
+                                subgraph "ONNX Core"
+                                    E[Protocol Buffers]
+                                    F[Graph IR]
+                                    G[Operators]
+                                    H[Type System]
+                                end
+                                
+                                B --> E
+                                E --> F
+                                F --> G
+                                G --> H
+                                
+                                style B fill:#ff9900
+                                style E fill:#66cc99
+                                style F fill:#66cc99
+                                style G fill:#66cc99
+                                style H fill:#66cc99
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Architecture Section -->
+                <section id="architecture" class="content-section">
+                    <h2>ONNX Architecture Deep Dive</h2>
+                    
+                    <div class="architecture-content">
+                        <div class="arch-diagram">
+                            <h3>Repository Structure</h3>
+                            <div class="directory-tree">
+                                <div class="tree-node" data-path="onnx/">
+                                    <span class="tree-icon">📁</span>
+                                    <span class="tree-label">onnx/</span>
+                                    <span class="tree-desc">Core Python library</span>
+                                </div>
+                                <!-- More tree nodes will be added dynamically -->
+                            </div>
+                        </div>
+
+                        <div class="module-overview">
+                            <h3>Core Modules</h3>
+                            <div id="module-grid">
+                                <!-- Dynamically populated -->
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Other sections will be added -->
+                <section id="modules" class="content-section">
+                    <h2>Module Deep Dive</h2>
+                    <p>Detailed exploration of ONNX modules...</p>
+                </section>
+
+                <section id="apis" class="content-section">
+                    <h2>API Reference</h2>
+                    <p>Complete API documentation...</p>
+                </section>
+
+                <section id="implementation" class="content-section">
+                    <h2>Implementation Details</h2>
+                    <p>Low-level implementation details...</p>
+                </section>
+            </div>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
