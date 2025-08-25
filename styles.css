@@ -151,13 +151,14 @@ body {
 }
 
 .level-selector h3 {
+    display: none; /* Hide heading when zoom controls are hidden */
     color: #333;
     font-size: 1rem;
     margin-bottom: 0.75rem;
 }
 
 .zoom-controls {
-    display: flex;
+    display: none; /* Hidden for now */
     flex-direction: column;
     gap: 0.5rem;
     margin-bottom: 2rem;
