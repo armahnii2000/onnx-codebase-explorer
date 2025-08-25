@@ -1,8 +1,5 @@
 // ONNX Codebase Explorer JavaScript
 
-// Initialize Mermaid for diagrams
-mermaid.initialize({ startOnLoad: true });
-
 // ONNX Codebase Data Structure
 const onnxCodebase = {
     overview: {
@@ -179,6 +176,27 @@ const searchBtn = document.querySelector('.search-btn');
 // Initialize the application
 document.addEventListener('DOMContentLoaded', function() {
     console.log('🚀 DOM Content Loaded - Initializing ONNX Explorer');
+    
+    // Initialize Mermaid first
+    if (typeof mermaid !== 'undefined') {
+        mermaid.initialize({ 
+            startOnLoad: true,
+            theme: 'default',
+            themeVariables: {
+                primaryColor: '#ff9900',
+                primaryTextColor: '#333333'
+            }
+        });
+        console.log('✅ Mermaid initialized');
+        
+        // Render diagrams after a short delay
+        setTimeout(() => {
+            mermaid.contentLoaded();
+            console.log('✅ Mermaid diagrams rendered');
+        }, 500);
+    } else {
+        console.warn('⚠️ Mermaid not found');
+    }
     
     // Log DOM element detection
     console.log('📊 DOM Elements Found:');
